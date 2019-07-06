@@ -1,0 +1,91 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+
+//gave the whole backgorund a black color
+.footer {
+    background-color: $color-grey-dark-3;
+    padding: 10rem 0;
+    font-size: 1.4rem;
+    color: $color-grey-light-1;
+
+    //align the logo
+    &__logoBox {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    //size the logo
+    &__logo {
+        width: 15rem;
+        height: auto;
+    }
+
+    //bring a black line above list items
+    &__navigation {
+        border-top: 1px solid $color-grey-dark;
+        padding-top: 2rem;
+        display: inline-block;
+    }
+
+    //remove the list dots
+    &__list {
+        list-style: none;
+    }
+
+    //diplay li items in one line with appropriate right margin
+    &__item {
+        display: inline-block;
+
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+    }
+
+    //style the text links
+    &__link {
+        &:link,
+        &:visited {
+            color: $color-grey-light-1;
+            background-color: $color-grey-dark-3;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all .2s;
+        }
+
+        &:hover,
+        &:active {
+            color: $color-primary;
+            box-shadow: 0 1rem 2rem rgba($color-black, .4);
+            transform: rotate(5deg) scale(1.3);
+        }
+    }
+
+    //similarly adding a black line above text
+    &__copyright {
+        border-top: 1px solid $color-grey-dark;
+        padding-top: 2rem;
+        width: 80%;
+        float: right;
+
+        margin-bottom: '-500px'
+    }
+}

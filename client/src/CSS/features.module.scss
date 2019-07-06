@@ -1,0 +1,82 @@
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.sectionFeatures {
+     padding: 35rem 0;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.1),
+        rgba($color-primary-dark, 0.8)),
+    url(../img/features.jpg);
+    background-size: cover;
+    transform: skewY(-6deg);
+    height : 100%;
+    margin-top: -10rem;
+
+    & > * {
+        transform: skewY(7deg);
+    }
+
+}
+
+.featureBox {
+    background-color: rgba($color-white, .8);
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+    transition: transform .3s;
+
+    &__icon {
+        font-size: 6rem;
+        margin-bottom: .5rem;
+        display: inline-block;
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    &:hover {
+        transform: translateY(-1.5rem) scale(1.03);
+    }
+}
+
+.headingTertiary {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.uMarginBottomSmall { margin-bottom: 1.5rem !important; }
