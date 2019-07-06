@@ -1,6 +1,6 @@
     
 const _ = require('lodash');
-const Path = require('path-parser');
+const Path = require('path-parser').default;
 const { URL } = require('url');
 
 const mongoose = require('mongoose');
@@ -21,34 +21,47 @@ module.exports = (app)=>{
 
 
       app.post('/api/surveys/webhooks', (req, res) => {
+        /*
+         * Extract the path from the URL
+         * Example: http://localhost:3000/api/surveys/597125awedf/yes => we need /api/surveys/597125awedf/yes
+         */
         const p = new Path('/api/surveys/:surveyId/:choice');
+        const events = _.map(req.body, event => {
+          const pathname = new URL(event.url).pathname;
+          const match = p.test(pathname);
+          if (match) {
+            return {
+              email: event.email,
+              surveyId: match.surveyId,
+              choice: match.choice
+            };
+          }
+        });
+        // Remove undefined events
+        const compactEvents = _.compact(events);
     
-        _.chain(req.body)
-          .map(({ email, url }) => {
-            const match = p.test(new URL(url).pathname);
-            if (match) {
-              return { email, surveyId: match.surveyId, choice: match.choice };
-            }
-          })
-          .compact()
-          .uniqBy('email', 'surveyId')
-          .each(({ surveyId, email, choice }) => {
-            Survey.updateOne(
-              {
-                _id: surveyId,
-                recipients: {
-                  $elemMatch: { email: email, responded: false }
+        //Remove duplicate events
+        const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId');
+    
+        // Persist updates in Mongo DB
+        uniqueEvents.forEach(({ surveyId, email, choice }) => {
+          Survey.updateOne(
+            {
+              _id: surveyId,
+              recipients: {
+                $elemMatch: {
+                  email: email,
+                  responded: false
                 }
-              },
-              {
-                $inc: { [choice]: 1 },
-                $set: { 'recipients.$.responded': true },
-                lastResponded: new Date()
               }
-            ).exec();
-          })
-          .value();
-    
+            },
+            {
+              $inc: { [choice]: 1 },
+              $set: { 'recipients.$.responded': true },
+              lastResponded: new Date()
+            }
+          ).exec();
+        });
         res.send({});
       });
    
