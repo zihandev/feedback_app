@@ -35,7 +35,7 @@ const Home = (props) => {
                 <span className={heads.headingPrimaryMain}>Feedback</span>
                 <span className={heads.headingPrimarySub}>is a gift</span>
             </h1> }
-            {/* <a href= '#' style={style}><GoogleButton/></a> */}
+            <a href= '/' style={style}><GoogleButton/></a>
             <a href="#section-tours" className = {`${classes.btn} ${classes.btnWhite} ${classes.btnAnimated}`}>Submit a survey</a> 
            
           
