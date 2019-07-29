@@ -15,6 +15,18 @@ const surveyTemplate = require('../services/surveyTemplate')
 
 module.exports = (app)=>{
    
+  app.get('/api/surveys', async (req,res)=>{
+    console.log('list of surveys');
+    
+    const surveys = await Survey.find({_user: req.user.id}).select(
+      {
+        recipients : false
+      }
+    )
+    res.send(surveys);
+  })
+
+
     app.get('/api/surveys/:surveyId/:choice', (req, res) => {
         res.send('Thanks for voting!');
       });

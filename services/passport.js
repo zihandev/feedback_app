@@ -1,8 +1,9 @@
 const passport = require ('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 const mongoose = require('mongoose');
 
-const User = mongoose.model('users')
+const User = mongoose.model('Survey Users')
 
 passport.serializeUser((user,done)=>{
     console.log(user.id);
@@ -40,3 +41,34 @@ passport.use(
           }
     )
 )
+
+passport.use(
+    
+    new FacebookStrategy(
+      {
+        clientID: '335822917343862',
+        clientSecret: '6b3090cd28897fc54cf5aa87d3665e46',
+        callbackURL: '/auth/facebook/callback',
+        proxy: true
+      },
+      async (accessToken, refreshToken, profile, done) => {
+        try {
+            console.log('hi');
+            
+          const existingUser = await User.findOne({ facebookId: profile.id });
+          if (existingUser) {
+            return done(null, existingUser);
+          } else {
+            const user = await new User({
+              facebookId: profile.id,
+              name: profile.displayName
+            }).save();
+            console.log(user);
+            return done(null, user);
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    )
+  );

@@ -3,6 +3,7 @@ import classes from '../CSS/prices.module.scss';
 import grids from '../CSS/grid.module.scss';
 
 import buttons from '../CSS/button.module.scss';
+import Payment from './Payment';
 
 const Prices = () => {
     return (
@@ -40,7 +41,9 @@ const Prices = () => {
                                 <p className={classes.card__priceOnly}>Only</p>
                                 <p className={classes.card__priceValue}>$5</p>
                             </div>
-                            <a href="#popup" className={`${buttons.btn} ${buttons.btnWhite}`}>Buy now!</a>
+                            <a  className={`${buttons.btn} ${buttons.btnWhite}`}>
+                                <Payment description='$5 for 5 Credits' amount='500' />
+                                </a>
                         </div>
                     </div>
                </div>
@@ -73,7 +76,9 @@ const Prices = () => {
                                 <p className={classes.card__priceOnly}>Only</p>
                                 <p className={classes.card__priceValue}>$15</p>
                             </div>
-                            <a href="#popup" className={`${buttons.btn} ${buttons.btnWhite}`}>Buy now!</a>
+                            <a  className={`${buttons.btn} ${buttons.btnWhite}`}>
+                                <Payment description='$15 for 15 Credits' amount='$1500' />
+                                </a>
                         </div>
                     </div>
                </div>

@@ -3,8 +3,9 @@ const {Schema} = mongoose;
 
 const userSchema = new Schema ({
     googleId : String,
+    facebookId: String,
     credits : {type : Number, default : 0},
     name : String
 });
 
-mongoose.model('users', userSchema);
+mongoose.model('Survey Users', userSchema);

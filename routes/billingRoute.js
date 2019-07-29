@@ -4,7 +4,7 @@ const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = (app) =>{
     app.post('/api/stripe', async (req,res)=>{
-
+console.log(req.body);
         console.log(req.user);
 
         //create the stripe charge object
@@ -12,12 +12,12 @@ module.exports = (app) =>{
             amount : 500,
             currency : 'usd',
             description: '$5 for 5 credits',
-            source : req.body.id
+            source : req.body.token.id
         })
 
         
-        
-        req.user.credits += 5;
+        req.body.amount == '$1500' ?  req.user.credits += 15 :  req.user.credits += 5;
+       
         const user = await req.user.save();
 
         res.send(user);  //send back user info to action creator

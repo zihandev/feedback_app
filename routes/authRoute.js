@@ -12,8 +12,20 @@ module.exports = app => {
       '/auth/google/callback',
       passport.authenticate('google'),
       (req, res) => {
-        res.redirect(`/logged`);
+        res.redirect(`/forms`);
       })
+
+    
+      app.get('/auth/facebook', passport.authenticate('facebook'));
+    
+      app.get(
+        '/auth/facebook/callback',
+        passport.authenticate('facebook'),
+        (req, res) => {
+          res.redirect('/forms');
+        }
+      );
+
 
       app.get('/api/current_user',  (req,res)=>{
        // console.log('Current User fetched is' + req.user);

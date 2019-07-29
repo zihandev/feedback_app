@@ -29,10 +29,12 @@ $grid-width: 114rem;
 $gutter-vertical: 8rem;
 $gutter-horizontal: 6rem;
 
+
 .btn {
     &,
     &:link,
     &:visited {
+       
         text-transform: uppercase;
         text-decoration: none;
         padding: 1.5rem 4rem;
@@ -41,9 +43,9 @@ $gutter-horizontal: 6rem;
         transition: all .2s;
         position: relative;
         font-size: $default-font-size;
-
+        outline: none;
         //Change for the <button> element
-        border: none;
+          border: 10%;
         cursor: pointer;
     }
     

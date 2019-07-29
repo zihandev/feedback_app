@@ -1,0 +1,111 @@
+.formStyle7{
+	max-width:400px;
+	margin:50px auto;
+	background:#fff;
+    border-radius:2px;
+
+	padding:20px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+.formStyle7 h1{
+	display: block;
+	text-align: center;
+	padding: 0;
+	margin: 0px 0px 20px 0px;
+	color: #5C5C5C;
+	font-size:x-large;
+}
+.formStyle7 ul{
+	list-style:none;
+	padding:0;
+	margin:0;	
+}
+.formStyle7 li{
+	display: block;
+	padding: 9px;
+	border:1px solid #DDDDDD;
+	margin-bottom: 30px;
+	border-radius: 3px;
+}
+.formStyle7 li:last-child{
+	border:none;
+	margin-bottom: 0px;
+	text-align: center;
+}
+.formStyle7 li > label{
+	display: block;
+	float: left;
+	margin-top: -19px;
+	background: #FFFFFF;
+	height: 19px;
+	padding: 2px 5px 2px 5px;
+	color: #B9B9B9;
+	font-size: 14px;
+	overflow: hidden;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.formStyle7 input[type="text"],
+.formStyle7 input[type="date"],
+.formStyle7 input[type="datetime"],
+.formStyle7 input[type="email"],
+.formStyle7 input[type="number"],
+.formStyle7 input[type="search"],
+.formStyle7 input[type="time"],
+.formStyle7 input[type="url"],
+.formStyle7 input[type="password"],
+.formStyle7 textarea,
+.formStyle7 select 
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	display: block;
+	outline: none;
+	border: none;
+	height: 45px;
+	line-height: 25px;
+	font-size: 16px;
+	padding: 0;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+.formStyle7 input[type="text"]:focus,
+.formStyle7 input[type="date"]:focus,
+.formStyle7 input[type="datetime"]:focus,
+.formStyle7 input[type="email"]:focus,
+.formStyle7 input[type="number"]:focus,
+.formStyle7 input[type="search"]:focus,
+.formStyle7 input[type="time"]:focus,
+.formStyle7 input[type="url"]:focus,
+.formStyle7 input[type="password"]:focus,
+.formStyle7 textarea:focus,
+.formStyle7 select:focus 
+{
+}
+.formStyle7 li > span{
+	background: #F3F3F3;
+	display: block;
+	padding: 3px;
+	margin: 0 -9px -9px -9px;
+	text-align: center;
+	color: #C0C0C0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.formStyle7 textarea{
+	resize:none;
+}
+.formStyle7 input[type="submit"],
+.formStyle7 input[type="button"]{
+	background: #2471FF;
+	border: none;
+	padding: 10px 20px 10px 20px;
+	border-bottom: 3px solid #5994FF;
+	border-radius: 3px;
+	color: #D2E2FF;
+}
+.formStyle7 input[type="check"]:hover,
+.formStyle7 input[type="button"]:hover{
+	background: #6B9FFF;
+	color:#fff;
+}
