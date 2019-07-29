@@ -41,7 +41,7 @@ if(this.props.surveys.length>0){
                   <p className={classes.body}> <strong>Body</strong> : {survey.body}</p>
                   <p className={classes.response}> <strong>Responses  </strong> </p>
                   <div className={classes.flexy}>
-                  <button disabled className={classes.btn}>Yes : {survey.no}</button>
+                  <button disabled className={classes.btn}>Yes : {survey.yes}</button>
                    <button disabled className={classes.btn1}>No: {survey.no}</button>
                    </div>
                 <div className={classes.footer} >
