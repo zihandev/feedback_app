@@ -23,6 +23,7 @@ body : this.state.body
     }
     console.log(survey)
     this.props.submitSurvey(survey);
+    this.props.history.push('/dashboard');
 }
 
   renderContent() {
